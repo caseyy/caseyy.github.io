@@ -1,66 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>HubPress.io</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-  <style>
-  body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .wrapper {
-    position: absolute;
-    top: 50%;
-    margin-top: -260px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  .container {
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    width: 300px;
-  }
-  h1 {
-    color: #e74c3c;
-    margin-bottom: 100px;
-  }
-
-  h1 span {
-    color: #7f8c8d;
-  }
-
-  .button {
-    background-color: #e74c3c;
-    color: #ffffff;
-    width: 300px;
-    margin: 0px auto 60px auto;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  </style>
+    <title>Radar Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
 </head>
+
 <body>
-
-  <div class="wrapper">
-    <div class="container">
-
-      <img class="logo" src="http://hubpress.io/img/logo.png" alt="Logo HubPress.io">
-      <h1>Hub<span>Press</span>.io</h1>
-      <p class="button">An awesome blog will be here soon!</p>
-
-      <a href="https://twitter.com/HubPressIO" class="twitter-follow-button" data-show-count="false">Follow @HubPressIO</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+  <div style="width:40%">
+      <canvas id="canvas"></canvas>
   </div>
-
+  <script>
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
+            datasets: [
+                {
+                    label: "Stats",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: [5, 5, 5, 5, 5, 5]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Chart.js Radar Chart'
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              }
+            }
+        }
+    };
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+  </script>
 </body>
+
 </html>
