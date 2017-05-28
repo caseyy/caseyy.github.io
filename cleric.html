@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Dwarf Cleric</title>
+    <script src="chart.min.js"></script>
+    <link href="spectre.min.css" rel="stylesheet">
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+  <h3 class="text-center">Dwarf Cleric</h3>
+  <div class="columns">
+    <div class="column col-6">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="column col-6">
+      <div class="abs" style="background-color:rgba(255,255,255,0.8);">Clerics believe the swirling chaos is heralding a great awakening. While others huddle in fear they celebrate the impending glory of a world reborn.<br /><br />
+        Starting ability: Aid to the Faithful<br />
+        The cleric calls on the Gods to mend the wounds of the devout.
+      </div>
+      <img class="img-responsive" style="margin:100px auto 0 auto;max-width:400px;" src="cleric.jpg" />
+    </div>
+  </div>
+  <script>
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
+            datasets: [
+                {
+                    label: "",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: [3, 2, 5, 3, 4, 5]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'hide',
+            },
+            title: {
+                display: false,
+                text: ''
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              }
+            }
+        }
+    };
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+  </script>
+</body>
+
+</html>

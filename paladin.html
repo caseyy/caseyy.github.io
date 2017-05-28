@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Dwarf Paladin</title>
+    <script src="chart.min.js"></script>
+    <link href="spectre.min.css" rel="stylesheet">
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+  <h3 class="text-center">Dwarf Paladin</h3>
+  <div class="columns">
+    <div class="column col-6">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="column col-6">
+      <div class="abs" style="background-color:rgba(255,255,255,0.8);">Paladins clung to honorable principles while their kingdom fell around them. Virtue has no place in a world without laws. They seek to show the Gods haven't forgotten them by smashing the skulls of the non-believers.<br /><br />
+        Starting ability: Consecrate<br />
+        The paladin slams his weapon into the ground with divine power. The ground in all adjacent squares is hallowed for the next 2 turns. Any enemy occupying or traveling through the effected squares will be struck by S4 holy damage.
+      </div>
+      <img class="img-responsive" style="margin:50px auto 0 auto;max-width:500px;" src="paladin.jpg" />
+    </div>
+  </div>
+  <script>
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
+            datasets: [
+                {
+                    label: "",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: [3, 2, 5, 3, 4, 5]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'hide',
+            },
+            title: {
+                display: false,
+                text: ''
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              }
+            }
+        }
+    };
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+  </script>
+</body>
+
+</html>
