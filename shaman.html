@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Troll Shaman</title>
+    <script src="chart.min.js"></script>
+    <link href="spectre.min.css" rel="stylesheet">
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+  <h3 class="text-center">Troll Shaman</h3>
+  <div class="columns">
+    <div class="column col-6">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="column col-6">
+      <div class="abs" style="background-color:rgba(255,255,255,0.8);">
+      </div>
+      <img class="img-responsive" style="margin:0 auto 0 auto;max-width:400px;" src="https://forums.wesnoth.org/download/file.php?id=56898" />
+    </div>
+  </div>
+  <script>
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
+            datasets: [
+                {
+                    label: "",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: [4, 2, 5, 3, 3, 6]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'hide',
+            },
+            title: {
+                display: false,
+                text: ''
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              }
+            }
+        }
+    };
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+  </script>
+</body>
+
+</html>
