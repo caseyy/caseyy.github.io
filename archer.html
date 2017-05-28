@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Elf Archer</title>
+    <script src="chart.min.js"></script>
+    <link href="spectre.min.css" rel="stylesheet">
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+  <h3 class="text-center">Elf Archer</h3>
+  <div class="columns">
+    <div class="column col-6">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="column col-6">
+      <div class="abs" style="background-color:rgba(255,255,255,0.8);">Amusement. That is the only emotion an elf feels in times like these.
+      Lesser races fall into disarray when facing the smallest disruptions. Elven Sorcerer's have witnessed the ebb and flow of civilizations
+      for milleniums and seldomly as bystanders.<br /><br />
+        Starting ability: Lightning Bolt<br />
+      </div>
+      <img class="img-responsive" style="margin:0 auto 0 auto;max-width:500px;" src="http://www.finalfantasyd20.com/ffd20/images/PF_Arcane_Archer.jpg" />
+    </div>
+  </div>
+  <script>
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
+            datasets: [
+                {
+                    label: "",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: [5, 5, 2, 5, 4, 2]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'hide',
+            },
+            title: {
+                display: false,
+                text: ''
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              }
+            }
+        }
+    };
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+  </script>
+</body>
+
+</html>
