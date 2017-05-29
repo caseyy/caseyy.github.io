@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Werewolf Monk</title>
+    <script src="chart.min.js"></script>
+    <link href="spectre.min.css" rel="stylesheet">
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+  <h3 class="text-center">Werewolf Monk</h3>
+  <div class="columns">
+    <div class="column col-6">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="column col-6">
+      <div class="abs" style="background-color:rgba(255,255,255,0.8);">
+      </div>
+      <img class="img-responsive" style="margin:50px auto 0 auto;max-width:500px;" src="https://s-media-cache-ak0.pinimg.com/originals/6e/06/28/6e0628023d838bad7371b1dd32c1e49e.jpg" />
+    </div>
+  </div>
+  <script>
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
+            datasets: [
+                {
+                    label: "",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: [4, 3, 6, 4, 3, 6]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'hide',
+            },
+            title: {
+                display: false,
+                text: ''
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              }
+            }
+        }
+    };
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+  </script>
+</body>
+
+</html>
