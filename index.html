@@ -2,62 +2,24 @@
 <html>
 
 <head>
-    <title>Radar Chart</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <style>
-    canvas {
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-    }
-    </style>
+    <title>Class List</title>
+    <link href="spectre.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div style="width:40%">
-      <canvas id="canvas"></canvas>
-  </div>
-  <script>
-    var color = Chart.helpers.color;
-    var config = {
-        type: 'radar',
-        data: {
-            labels: ["Accuracy", "Intelligence", "Constitution", "Agility", "Willpower", "Strength"],
-            datasets: [
-                {
-                    label: "Stats",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    pointBackgroundColor: "rgba(255,99,132,1)",
-                    pointBorderColor: "#fff",
-                    pointHoverBackgroundColor: "#fff",
-                    pointHoverBorderColor: "rgba(255,99,132,1)",
-                    data: [5, 5, 5, 5, 5, 5]
-                }
-            ]
-        },
-        options: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Chart.js Radar Chart'
-            },
-            scale: {
-              ticks: {
-                beginAtZero: true,
-                min: 0,
-                max: 10,
-                stepSize: 1
-              }
-            }
-        }
-    };
-    window.onload = function() {
-        window.myRadar = new Chart(document.getElementById("canvas"), config);
-    };
-  </script>
+  <header class="navbar">
+  <section class="navbar-section">
+    <a href="#" class="navbar-brand mr-10">Spectre.css</a>
+    <a href="#" class="btn btn-link">Docs</a>
+    <a href="https://github.com/picturepan2/spectre" class="btn btn-link">GitHub</a>
+  </section>
+  <section class="navbar-section">
+    <div class="input-group input-inline">
+      <input class="form-input" type="text" placeholder="search" />
+      <button class="btn btn-primary input-group-btn">Search</button>
+    </div>
+  </section>
+</header>
 </body>
 
 </html>
